@@ -32,11 +32,11 @@ function signIn() {
         user.nick = userNikname[0].value;
 
         const xmlHttp = new XMLHttpRequest();
-        xmlHttp.open('GET', '/checkUsers/' + user.name + '/' + user.nick, true);
+        xmlHttp.open('GET', '/checkUsers/' + user.name + '/' + user.nick, false);
         xmlHttp.setRequestHeader('Content-Type', 'application/json');
         xmlHttp.send();
 
-        if (xmlHttp.responseText === false) {
+        if (xmlHttp.responseText === 'false') {
             document.getElementsByClassName('not-valid')[0].innerHTML = 'name is busy';
         } else {
             postUser();

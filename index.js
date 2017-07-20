@@ -45,9 +45,11 @@ app.post('/messages', (req, res) =>{
     if (logHistory.length > 100) {
         logHistory.shift();
     }
+    res.end();
 })
 app.post('/users', (req, res) =>{
     users.push(req.body);
+    res.end();
 })
 
 app.get('/checkUsers/:name/:nick', (req, res) => {
